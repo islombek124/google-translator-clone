@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Переводчик Clone</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="shortcut icon" href="https://ssl.gstatic.com/translate/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="left">
+      <a href="/index.html">
+        <div class="logo">
+          <img src="./icons/Google.png" alt="">Переводчик
+        </div>
+      </a>
+    </div>
+    <div class="right">
+      <div class="more__apps">
+        <a href="" role="button">
+          <svg focusable="false" viewBox="0 0 24 24"><path d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"></path></svg>
+        </a>
+      </div>
+      <div class="user__logo">
+        <img src="data:image/png;base64,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" alt="">
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="display">
+      <div class="select__language">
+        <select></select>
+        <i class="fa-solid fa-arrow-right-arrow-left" role="button"></i>
+        <select></select>
+      </div>
+      <div class="words__display">
+        <textarea maxlength="5000" aria-autocomplete="list" aria-expanded="false" autocomplete="off" autocapitalize="off" rows="1" spellcheck="false" role="combobox" class="words-display"></textarea>
+        <p class="symbols"><span class="current">0</span> / 5 000</p>
+      </div>
+      <div class="meaning__display">
+        <div aria-hidden="true" role="textbox">Перевод</div>
+      </div>
+    </div>
+  </main>
+  <script src="./js/countries.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
